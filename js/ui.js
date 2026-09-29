@@ -95,8 +95,9 @@
       '</a>';
   };
 
-  /** 渲染卡片列表到容器；items 为空时展示空状态 */
-  UI.renderCards = function (el, items, emptyCfg) {
+  /** 渲染列表到容器；items 为空时展示空状态；renderItem 可自定义单条模板 */
+  UI.renderCards = function (el, items, emptyCfg, renderItem) {
+    var render = renderItem || UI.cardHTML;
     if (!items.length) {
       var e = emptyCfg || {};
       el.innerHTML = '<div class="empty">' +
@@ -107,7 +108,7 @@
         '</div>';
       return;
     }
-    el.innerHTML = items.map(UI.cardHTML).join('');
+    el.innerHTML = items.map(render).join('');
   };
 
   /* ---------------- 交互小件 ---------------- */

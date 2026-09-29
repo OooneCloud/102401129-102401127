@@ -57,7 +57,7 @@
       title: '你还没有发布过信息',
       text: '丢了东西或捡到东西？发布一条信息，全校园都能看到。',
       actions: '<div class="actions"><a class="btn btn-sm btn-primary" href="publish.html">去发布</a></div>'
-    });
+    }, itemHTML);
     listEl.querySelectorAll('[data-op]').forEach(function (btn) {
       btn.addEventListener('click', function () { onOp(btn.dataset.op, btn.dataset.id); });
     });

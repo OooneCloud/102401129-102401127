@@ -12,11 +12,11 @@
 (function (global, factory) {
   'use strict';
   if (typeof module === 'object' && module.exports) {
-    module.exports = factory();          // Node（Mocha 单元测试）
+    module.exports = factory(global);    // Node（Mocha 单元测试）
   } else {
-    global.CLF = factory();              // 浏览器全局命名空间
+    global.CLF = factory(global);        // 浏览器全局命名空间
   }
-})(typeof window !== 'undefined' ? window : globalThis, function () {
+})(typeof window !== 'undefined' ? window : globalThis, function (global) {
   'use strict';
 
   var KEY_ITEMS = 'clf_items';      // 全部失物信息列表

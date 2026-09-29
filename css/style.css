@@ -35,6 +35,10 @@ html, body {
   padding: 0;
 }
 
+html {
+  scroll-padding-bottom: 96px;
+}
+
 body {
   font-family: "PingFang SC", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Microsoft YaHei", sans-serif;
   background: var(--bg-out);
@@ -185,7 +189,7 @@ button { font-family: inherit; }
 main.list-area {
   flex: 1;
   min-height: 0;
-  padding: 12px 16px 16px;
+  padding: 12px 16px 88px;
 }
 
 .list-head {
@@ -344,7 +348,7 @@ main.list-area {
 
 /* ---------------- 表单 ---------------- */
 
-.form-wrap { flex: 1; padding: 14px 16px 20px; }
+.form-wrap { flex: 1; padding: 14px 16px 88px; }
 
 .type-switch {
   display: grid;
@@ -474,7 +478,7 @@ main.list-area {
 
 /* ---------------- 详情页 ---------------- */
 
-.detail-wrap { flex: 1; padding: 14px 16px 20px; }
+.detail-wrap { flex: 1; padding: 14px 16px 88px; }
 
 .detail-card {
   background: var(--card);
