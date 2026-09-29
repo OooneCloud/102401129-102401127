@@ -1,13 +1,14 @@
 /**
  * ui.js —— 页面公共组件（仅浏览器使用）
  *
- * 提供：HTML 转义、内联 SVG 图标、卡片渲染、时间格式化、
- * 轻提示 toast、一键复制联系方式、底部导航高亮等公共能力。
+ * 提供：内联 SVG 图标、卡片渲染、轻提示 toast、一键复制联系方式、
+ * 底部导航高亮等公共能力；文本转义与时间格式化等纯逻辑在 util.js。
  * 所有用户输入渲染前必须经过 escapeHTML，防止输入内容破坏页面。
  */
 (function (global) {
   'use strict';
 
+  var U = global.CLFUtil;   // 纯工具模块（util.js，先于本文件加载）
   var UI = {};
 
   /* ---------------- 内联 SVG 图标（离线可用，不依赖图标 CDN） ---------------- */
@@ -42,51 +43,12 @@
     return ICONS[name] || ICONS.box;
   };
 
-  /* ---------------- 文本与时间工具 ---------------- */
+  /* ---------------- 纯逻辑转发（实现在 util.js，便于单元测试） ---------------- */
 
-  /** HTML 转义：所有用户输入渲染前必须调用 */
-  UI.escapeHTML = function (s) {
-    if (s === null || s === undefined) return '';
-    return String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;')
-      .replace(/'/g, '&#39;');
-  };
-
-  UI.typeLabel = function (type) {
-    return type === 'found' ? '招领' : '寻物';
-  };
-
-  /** '2026-09-29' → '今天' / '昨天' / '9月29日'（跨年加年份） */
-  UI.formatDate = function (dateStr) {
-    var m = /^(\d{4})-(\d{1,2})-(\d{1,2})$/.exec(dateStr || '');
-    if (!m) return dateStr || '';
-    var y = +m[1], mo = +m[2], d = +m[3];
-    var now = new Date();
-    var t = new Date(now.getFullYear(), now.getMonth(), now.getDate());
-    var that = new Date(y, mo - 1, d);
-    var diff = Math.round((t - that) / 86400000);
-    var label = mo + '月' + d + '日';
-    if (diff === 0) return '今天';
-    if (diff === 1) return '昨天';
-    if (y !== now.getFullYear()) return y + '年' + label;
-    return label;
-  };
-
-  /** 时间戳 → '刚刚 / N分钟前 / N小时前 / 昨天 / M月D日' */
-  UI.timeAgo = function (ts) {
-    var diff = Date.now() - ts;
-    if (diff < 60 * 1000) return '刚刚';
-    if (diff < 60 * 60 * 1000) return Math.floor(diff / 60000) + '分钟前';
-    if (diff < 24 * 60 * 60 * 1000) return Math.floor(diff / 3600000) + '小时前';
-    if (diff < 48 * 60 * 60 * 1000) return '昨天';
-    var d = new Date(ts);
-    var label = (d.getMonth() + 1) + '月' + d.getDate() + '日';
-    if (d.getFullYear() !== new Date().getFullYear()) return d.getFullYear() + '年' + label;
-    return label;
-  };
+  UI.escapeHTML = U.escapeHTML;
+  UI.typeLabel = U.typeLabel;
+  UI.formatDate = U.formatDate;
+  UI.timeAgo = U.timeAgo;
 
   /** 分类 → 卡片图标的配色与图形 */
   var CAT_ICON = {

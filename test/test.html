@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>校园失物招领 · 单元测试报告</title>
+  <link rel="stylesheet" href="lib/mocha.css">
+  <style>
+    body { font-family: "PingFang SC", "Microsoft YaHei", sans-serif; max-width: 860px; margin: 28px auto; padding: 0 18px; background: #fff; }
+    h1 { font-size: 20px; }
+    .tip { color: #8A909C; font-size: 13px; margin-bottom: 20px; }
+  </style>
+</head>
+<body>
+  <h1>校园失物招领 · 单元测试（Mocha + Chai）</h1>
+  <p class="tip">本页即为可运行的单元测试：直接双击打开即可查看全部用例结果，无需安装任何环境。</p>
+  <div id="mocha"></div>
+
+  <script src="lib/mocha.js"></script>
+  <script src="lib/chai.js"></script>
+  <script>
+    mocha.setup('bdd');
+    window.expect = chai.expect;
+  </script>
+
+  <!-- 被测模块 -->
+  <script src="../js/core.js"></script>
+  <script src="../js/seed.js"></script>
+  <script src="../js/validate.js"></script>
+  <script src="../js/search.js"></script>
+  <script src="../js/util.js"></script>
+  <script src="../js/ui.js"></script>
+
+  <!-- 测试用例 -->
+  <script src="core.test.js"></script>
+  <script src="validate.test.js"></script>
+  <script src="search.test.js"></script>
+  <script src="util.test.js"></script>
+  <script src="ui.test.js"></script>
+
+  <script>
+    mocha.run(function (failures) {
+      document.title = failures === 0
+        ? '✅ 全部通过 · 单元测试'
+        : '❌ ' + failures + ' 个失败 · 单元测试';
+    });
+  </script>
+</body>
+</html>
