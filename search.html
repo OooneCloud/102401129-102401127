@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园失物招领 · 搜索</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="search">
+  <div class="app">
+
+    <div class="topbar">
+      <a class="back" href="index.html" aria-label="返回"><span data-icon="back"></span></a>
+      <div class="searchbar" style="margin-top:0">
+        <span data-icon="search"></span>
+        <input type="text" id="kw" placeholder="搜索物品名称、地点或发布人" autocomplete="off">
+        <button class="btn btn-sm btn-primary" type="button" id="searchBtn">搜索</button>
+      </div>
+    </div>
+
+    <main class="list-area">
+      <section id="hotSec">
+        <p class="search-sec-title">热门搜索</p>
+        <div class="hotwords" id="hotwords"></div>
+      </section>
+
+      <section id="resultSec" style="display:none">
+        <div class="list-head">
+          <span class="count" id="resultCount"></span>
+        </div>
+        <div class="card-list" id="resultList"></div>
+      </section>
+
+      <section id="initSec">
+        <div class="empty">
+          <div class="glyph"><span data-icon="search"></span></div>
+          <h4>输入关键词开始搜索</h4>
+          <p>可以搜物品名称（如“校园卡”）、地点（如“图书馆”）<br>或发布人昵称，多个词用空格隔开更精确。</p>
+        </div>
+      </section>
+    </main>
+
+  </div>
+
+  <script src="js/core.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/search.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/page-search.js"></script>
+</body>
+</html>

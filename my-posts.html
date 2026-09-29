@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园失物招领 · 我的发布</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="mine">
+  <div class="app">
+
+    <header class="header">
+      <div class="header-row">
+        <div>
+          <h1>我的发布</h1>
+          <p class="slogan">物品找回 / 归还后，记得在这里更新状态</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="list-area">
+      <div class="stat-row" id="statRow"></div>
+      <div class="card-list" id="myList"></div>
+
+      <div class="tool-row" id="toolRow">
+        <button type="button" id="reseedBtn">载入演示数据</button>
+        <span class="sep">·</span>
+        <button type="button" id="clearBtn">清空全部数据</button>
+      </div>
+      <p class="foot-note">「我的发布」保存在当前浏览器中；换电脑或清除浏览器数据后，历史发布将无法管理。</p>
+    </main>
+
+    <nav class="bottomnav">
+      <a href="index.html" data-nav="home">
+        <span data-icon="home"></span><span>首页</span>
+      </a>
+      <a href="publish.html" data-nav="publish">
+        <span data-icon="plus"></span><span>发布</span>
+      </a>
+      <a href="my-posts.html" data-nav="mine">
+        <span data-icon="user"></span><span>我的</span>
+      </a>
+    </nav>
+  </div>
+
+  <script src="js/core.js"></script>
+  <script src="js/seed.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/page-mine.js"></script>
+</body>
+</html>

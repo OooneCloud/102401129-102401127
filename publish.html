@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>校园失物招领 · 发布信息</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body data-page="publish">
+  <div class="app">
+
+    <header class="header">
+      <div class="header-row">
+        <div>
+          <h1>发布信息</h1>
+          <p class="slogan">信息越具体，越容易物归原主</p>
+        </div>
+      </div>
+    </header>
+
+    <main class="form-wrap">
+      <div class="type-switch" id="typeSwitch">
+        <button type="button" data-type="lost" class="is-active t-lost">我丢了东西（寻物）</button>
+        <button type="button" data-type="found" class="t-found">我捡到了东西（招领）</button>
+      </div>
+      <p class="form-hint" id="typeHint">填写丢失物品的名称、地点和你的联系方式，捡到的同学会尽快联系你。</p>
+
+      <form id="postForm" novalidate>
+        <div class="field" data-field="name">
+          <label>物品名称 <span class="opt">必填</span></label>
+          <input type="text" id="name" maxlength="30" placeholder="如：蓝色无线蓝牙耳机">
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="cat">
+          <label>物品分类 <span class="opt">必填</span></label>
+          <select id="cat">
+            <option value="" selected disabled>请选择物品分类</option>
+          </select>
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="place">
+          <label id="placeLabel">丢失地点 <span class="opt">必填</span></label>
+          <input type="text" id="place" maxlength="30" placeholder="如：三号教学楼 305 教室">
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="date">
+          <label id="dateLabel">丢失日期 <span class="opt">必填</span></label>
+          <input type="date" id="date">
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="nickname">
+          <label>怎么称呼你 <span class="opt">必填</span></label>
+          <input type="text" id="nickname" maxlength="20" placeholder="如：小林">
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="contact">
+          <label>联系方式 <span class="opt">必填</span></label>
+          <input type="text" id="contact" maxlength="50" placeholder="手机号 / QQ / 微信号均可">
+          <p class="err"></p>
+        </div>
+
+        <div class="field" data-field="note">
+          <label>备注 <span class="counter" id="noteCounter">0 / 100</span></label>
+          <textarea id="note" maxlength="100" placeholder="补充物品特征、型号、颜色等信息（选填），有助于对方核对"></textarea>
+          <p class="err"></p>
+        </div>
+
+        <button class="btn btn-primary" type="submit" id="submitBtn">立即发布</button>
+      </form>
+    </main>
+
+    <nav class="bottomnav">
+      <a href="index.html" data-nav="home">
+        <span data-icon="home"></span><span>首页</span>
+      </a>
+      <a href="publish.html" data-nav="publish">
+        <span data-icon="plus"></span><span>发布</span>
+      </a>
+      <a href="my-posts.html" data-nav="mine">
+        <span data-icon="user"></span><span>我的</span>
+      </a>
+    </nav>
+  </div>
+
+  <!-- 发布成功遮罩 -->
+  <div class="overlay" id="successOverlay">
+    <div class="success-pop">
+      <div class="ring"><span data-icon="check"></span></div>
+      <h3>发布成功！</h3>
+      <p id="successText">信息已同步到首页信息墙，有线索的同学会直接联系你。</p>
+      <div class="actions">
+        <a class="btn btn-primary" style="margin-top:0" id="viewDetail" href="#">查看这条信息</a>
+        <button class="btn btn-outline" type="button" id="postAnother">再发一条</button>
+        <a class="btn btn-outline" style="margin-top:0" href="index.html">返回首页</a>
+      </div>
+    </div>
+  </div>
+
+  <script src="js/core.js"></script>
+  <script src="js/validate.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/page-publish.js"></script>
+</body>
+</html>
