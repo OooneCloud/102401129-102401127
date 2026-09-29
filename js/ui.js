@@ -60,6 +60,11 @@
     '其他': { icon: 'box', tone: 'tone-resolved' }
   };
 
+  /** 分类对应的图标名（卡片与详情页共用） */
+  UI.catIcon = function (cat) {
+    return (CAT_ICON[cat] || CAT_ICON['其他']).icon;
+  };
+
   /* ---------------- 卡片渲染 ---------------- */
 
   function badgesHTML(item) {

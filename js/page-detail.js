@@ -42,7 +42,7 @@
     var item = CLF.getItem(id);
     if (!item) {
       wrap.innerHTML = '<div class="empty">' +
-        '<div class="glyph">' + CLFUI.icon('box') + '</div>' +
+        '<div class="glyph">' + CLFUI.icon(CLFUI.catIcon(cat)) + '</div>' +
         '<h4>没有找到这条信息</h4>' +
         '<p>它可能已被发布者删除，或者链接不完整。</p>' +
         '<div class="actions"><a class="btn btn-sm btn-primary" href="index.html">回首页看看</a></div>' +
@@ -60,7 +60,7 @@
     wrap.innerHTML =
       '<div class="detail-card' + (item.status === 'resolved' ? ' is-resolved' : '') + '">' +
         '<div class="detail-head">' +
-          '<div class="catbox ' + (item.type === 'found' ? 'tone-found' : 'tone-lost') + '">' + CLFUI.icon('box') + '</div>' +
+          '<div class="catbox ' + (item.type === 'found' ? 'tone-found' : 'tone-lost') + '">' + CLFUI.icon(CLFUI.catIcon(cat)) + '</div>' +
           '<div>' +
             '<h2>' + CLFUI.escapeHTML(item.name) + '</h2>' +
             '<div class="badges">' +
